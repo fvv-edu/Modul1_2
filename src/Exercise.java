@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class Exercise {
 
     public int[] indexSum(int[] mas, int inputNum) {
@@ -18,27 +21,38 @@ public class Exercise {
                 }
             }
         }
-        System.out.println("Задание 2: " + indexMas[0] + ", " + indexMas[1]);
         return indexMas;
     }
 
-    public void duplicate(int mas[]) {
+    public void duplicate(Integer mas[]) {
+
+        HashSet<Integer> hs = new HashSet<Integer>();
         int counter = 0;
-        int a = 0;
         for (int i = 0; i < mas.length; i++) {
-            for (int j = i+1; j < mas.length; j++) {
-                if (mas[i] == mas[j]) {
-                    counter++;
-                    a = mas[i];
-                }
+            if (hs.contains(mas[i])) {
+                counter++;
             }
+            hs.add(mas[i]);
         }
         if (counter > 0) {
             System.out.println("Result: " + true);
-            System.out.println("Число " + a + " повторяется " + counter + " раза");
-        } else {
+        }else {
             System.out.println("Result: " + false);
-            System.out.println("Дубликатов нет");
         }
+
+         /*int counter = 0;
+
+        for (int i = 0; i < mas.length; i++) {
+            for (int j = i + 1; j < mas.length; j++) {
+                if (mas[i] == mas[j]) {
+                    counter++;
+                }
+            }
+        }
+            if (counter > 0) {
+                System.out.println("Result: " + true);
+            } else {
+                System.out.println("Result: " + false);
+            }*/
     }
 }
